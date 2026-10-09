@@ -10,6 +10,10 @@ A single repository containing completed machine-learning exercises and lab work
 - Random Forests — Ensemble Bagging & Feature Importance
 - K-Means — Wholesale Spending Personas
 
+## Latest corrected notebook
+
+- `Lab-Series-01/ML_Hands_On_Lab_Series_01_CORRECTED.ipynb` — corrected artifact-saving, Recall@0.35 calculation, full bank dataset selection, and Random Forest `pdays` feature handling. Rerun from top to bottom before final submission.
+
 ## Structure
 
 - `Lab-Series-01/` — completed notebook and outputs
