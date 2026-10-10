@@ -1,28 +1,28 @@
-# Lab Series 01 — Benchmark Status
+# Lab Series 01 — Verification Status
 
-The supplied lab guide requires the notebook and exported artifacts, with quantitative acceptance targets for all five exercises. fileciteturn40file1
+## Current status
 
-## Corrections applied
+The five exercise sections have been implemented and run in Google Colab. The lab is **not yet fully passing all quantitative acceptance targets**.
 
-- Exercise 1: fixed the enhanced raw-charge prediction artifact so the later log1p benchmark does not overwrite the saved test split.
-- Exercise 2: fixed Recall@0.35 so the acceptance CSV records the numeric recall rather than a Boolean expression.
-- Exercise 4: corrected dataset selection to use the full `bank-full.csv` and included `pdays`, which the guide explicitly identifies in its Random Forest feature-importance expectation. fileciteturn40file6
-- The corrected notebook clears stale execution outputs and must be rerun from top to bottom.
+## Latest values visible in the user's Colab screenshots
 
-## Previously observed results
+| Exercise | Metric | Latest observed value | Target | Status |
+|---|---|---:|---:|---|
+| Exercise 2 — Logistic Regression | ROC-AUC | 0.8645 | >= 0.78 | Pass |
+| Exercise 2 — Logistic Regression | Recall at threshold 0.35 | 0.8487 | >= 0.70 | Pass |
+| Exercise 4 — Random Forest | OOB score | 0.9030 | >= 0.88 | Pass |
+| Exercise 4 — Random Forest | F1 | 0.6162 | >= 0.65 | Not met |
+| Exercise 5 — K-Means | Silhouette at k=4 | 0.1885 | >= 0.42 | Not met |
 
-| Exercise | Metric | Previous result | Target | Status |
-|---|---:|---:|---:|---|
-| 1 — Linear Regression | R² | 0.7836 | ≥ 0.75 | Pass |
-| 1 — Linear Regression | RMSE | 5796.28 | < 4800 | Fail |
-| 2 — Logistic Regression | ROC-AUC | 0.8506 | ≥ 0.78 | Pass |
-| 2 — Logistic Regression | Recall@0.35 | Boolean value | ≥ 0.70 | Calculation bug |
-| 3 — Decision Tree | Accuracy | 0.8904 | ≥ 0.85 | Pass |
-| 3 — Decision Tree | Depth | 5 | ≤ 5 | Pass |
-| 4 — Random Forest | OOB | 0.8947 | ≥ 0.88 | Pass |
-| 4 — Random Forest | F1 | 0.3243 | ≥ 0.65 | Fail |
-| 5 — K-Means | Silhouette@k4 | 0.1885 | ≥ 0.42 | Fail |
+Exercise 1 and Exercise 3 values must be copied from their latest successful output cells before a final all-exercise acceptance CSV is published. Earlier summary values in the repository may be stale and must not be treated as the final run.
 
-The guide specifically requires log1p followed by StandardScaler for Exercise 5, so the 0.1885 result should not be replaced with a different preprocessing method merely to force the benchmark to pass. fileciteturn40file3
+## Remaining work
 
-**Final status: corrected notebook uploaded; final benchmark results still require a fresh top-to-bottom execution.**
+1. Re-run the notebook from a clean runtime and ensure every cell completes in order.
+2. Fix any cell errors (including the permutation-importance sparse-matrix input, by converting the transformed test matrix to a dense array only for that diagnostic if memory permits).
+3. Investigate Random Forest F1 with validation-only threshold selection and model tuning; retain the measured test result even if it remains below 0.65.
+4. Keep the lab-required K-Means preprocessing (log1p followed by StandardScaler) and report the actual silhouette score. Do not change the score manually to meet the target.
+5. Export the final prediction CSVs, centroids, cluster assignments, and acceptance summary from the same final run.
+6. Save the executed notebook successfully in Drive, then upload that exact notebook and the generated artifacts to this repository.
+
+Do not mark all checks as passed unless the final executed notebook demonstrates that result.
