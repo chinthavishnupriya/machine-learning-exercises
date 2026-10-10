@@ -1,58 +1,28 @@
-<PARSED TEXT FOR PAGE: 1 / 1>   Machine Learning Engineering — Executive Diagnostic
-                          Brief
+# Machine Learning Engineering — Executive Diagnostic Brief
 
-Overview
-This laboratory implements five machine-learning paradigms: Multiple Linear Regression, Logistic Regression,
-Decision Trees, Random Forests, and K-Means Clustering.
+## Overall status
 
-                            Exercise              Metric       Actual      Target     Status
+All five exercise sections have been implemented and executed in Google Colab, but **the lab is not yet fully passing every quantitative acceptance criterion**. A final clean-runtime execution and export are still required.
 
-                            Linear Regression     R²           0.8695      >= 0.75    PASS
+## Latest observed results
 
-                            Linear Regression     RMSE         $4,501.30   < $4,800   PASS
+| Exercise | Metric | Latest observed value | Target | Status |
+|---|---|---:|---:|---|
+| Exercise 2 — Logistic Regression | ROC-AUC | 0.8645 | >= 0.78 | Pass |
+| Exercise 2 — Logistic Regression | Recall at threshold 0.35 | 0.8487 | >= 0.70 | Pass |
+| Exercise 4 — Random Forest | OOB score | 0.9030 | >= 0.88 | Pass |
+| Exercise 4 — Random Forest | F1 | 0.6162 | >= 0.65 | Not met |
+| Exercise 5 — K-Means | Silhouette at k=4 | 0.1885 | >= 0.42 | Not met |
 
-                            Logistic Regression   ROC-AUC      0.8506      >= 0.78    PASS
+The latest Exercise 4 and Exercise 5 screenshots show two targets still unmet. Exercise 1 and Exercise 3 must be verified from their latest successful output cells before the final acceptance summary is considered authoritative.
 
-                            Logistic Regression   Recall       1.0000      >= 0.70    PASS
+## Recommendations
 
-                            Decision Tree         Accuracy     0.8904      >= 0.85    PASS
+- Fix the Random Forest permutation-importance diagnostic so it receives an array-like input rather than a SciPy sparse matrix; preserve the original feature names for interpretation.
+- Tune the Random Forest using validation data only, then evaluate the chosen configuration once on the untouched test set.
+- Preserve the required K-Means workflow of log1p followed by StandardScaler and report the measured silhouette value. Do not manipulate metrics to force a pass.
+- Re-run all cells in order, export all required artifacts from the same run, and verify the notebook is saved before uploading.
 
-                            Decision Tree         Depth        5           <= 5       PASS
+## Submission note
 
-                            Random Forest         OOB          0.8274      >= 0.88    REVIEW
-
-                            Random Forest         F1           0.4734      >= 0.65    REVIEW
-
-                            K-Means               Silhouette   0.1885      >= 0.42    REVIEW
-
-
-
-1. Insurance Cost Prediction
-The enhanced linear regression achieved R² = 0.8695 with RMSE = $4,501.30. Residual diagnostics should be
-reviewed for increasing variance at higher predicted expense levels. Log-transformed target modeling was also
-evaluated.
-
-2. Direct Marketing Conversion
-Logistic Regression achieved ROC-AUC = 0.8506. The classification threshold was calibrated to 0.35, with recall
-= 1.0000. This supports prioritizing higher-probability prospects while accounting for outreach cost.
-
-3. Decision Tree
-The pruned decision tree achieved test accuracy = 0.8904 with depth = 5. The resulting rules provide interpretable
-decision paths for business users.
-
-4. Random Forest
-The tuned Random Forest produced an OOB score of 0.8274 and test F1 = 0.4734. Feature importance and
-permutation importance were evaluated to identify influential predictors.
-
-5. Wholesale Customer Segmentation
-The four-cluster K-Means solution produced a silhouette score of 0.1885. Cluster centroid profiles were calculated
-using the original euro spending values across six product categories.
-
-Business Recommendations
-• Use the regression model as a baseline for insurance-cost forecasting and investigate residual variance before
-production deployment.
-• Use the calibrated marketing classifier to prioritize leads while monitoring precision-recall trade-offs.
-• Use the pruned decision tree where interpretability is more important than maximum predictive complexity.
-• Use Random Forest feature rankings to support predictor selection and model interpretation.
-• Use K-Means centroid profiles to design differentiated inventory and credit-line strategies for customer
-segments.
+This brief is a verification status report, not a claim that all acceptance targets have passed.
