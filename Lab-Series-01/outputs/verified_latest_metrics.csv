@@ -1,0 +1,6 @@
+Exercise,Metric,LatestObserved,Target,Status,Notes
+Exercise 2 - Logistic Regression,ROC-AUC,0.8645,0.78,Pass,Latest value visible in Colab screenshot
+Exercise 2 - Logistic Regression,Recall@0.35,0.8487,0.70,Pass,Latest value visible in Colab screenshot
+Exercise 4 - Random Forest,OOB,0.9030,0.88,Pass,Latest value visible in Colab screenshot
+Exercise 4 - Random Forest,F1,0.6162,0.65,Not met,Latest value visible in Colab screenshot
+Exercise 5 - K-Means,Silhouette@k4,0.1885,0.42,Not met,Latest value visible in Colab screenshot
