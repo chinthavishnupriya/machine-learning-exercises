@@ -12,7 +12,10 @@ A single repository containing completed machine-learning exercises and lab work
 
 ## Latest corrected notebook
 
-- `Lab-Series-01/ML_Hands_On_Lab_Series_01_CORRECTED.ipynb` — corrected artifact-saving, Recall@0.35 calculation, full bank dataset selection, and Random Forest `pdays` feature handling. Rerun from top to bottom before final submission.
+- `Lab-Series-01/ML_Hands_On_Lab_Series_01.ipynb` — primary notebook, synced with the latest code fixes.
+- `Lab-Series-01/ML_Hands_On_Lab_Series_01_CORRECTED.ipynb` — corrected notebook copy.
+
+The latest Random Forest code uses its own preprocessing pipeline, includes `pdays`, selects a decision threshold using a training-only validation split, and writes predictions with the selected threshold. Run the notebook from top to bottom in Colab to regenerate outputs. Benchmark failures are reported honestly rather than manually overridden.
 
 ## Structure
 
