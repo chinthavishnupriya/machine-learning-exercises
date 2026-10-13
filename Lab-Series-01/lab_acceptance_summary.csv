@@ -1,0 +1,10 @@
+Exercise,Metric,Actual,Target,Pass
+Exercise 1 - Linear Regression,R2,0.8695,0.75,True
+Exercise 1 - Linear Regression,RMSE,4501.295528,4800.0,True
+Exercise 2 - Logistic Regression,ROC-AUC,0.8645,0.78,True
+Exercise 2 - Logistic Regression,Recall@0.35,0.8487,0.7,True
+Exercise 3 - Decision Tree,Accuracy,0.9005,0.85,True
+Exercise 3 - Decision Tree,Depth,5.0,5.0,True
+Exercise 4 - Random Forest,OOB,0.9048,0.88,True
+Exercise 4 - Random Forest,F1,0.6162,0.65,False
+Exercise 5 - K-Means,Silhouette@k4,0.1885,0.42,False
